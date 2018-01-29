@@ -1,47 +1,60 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 public class Functions{
-    public double sumar(double[] numbers){
+    public double sumar(List<double> numbers){
 
-        var suma =0.0;
-        foreach(var number in numbers){
-            suma += number; 
+        var suma = 0.0;
+        if (numbers.Count == 2){
+            
+                suma = (numbers.ElementAt(0) + numbers.ElementAt(1));
+            
+        }else{
+            
+                suma = numbers.ElementAt(0) + numbers.ElementAt(1) + numbers.ElementAt(2);
+            
         }
-
-        return Math.Round(suma);
+        
+        return suma;
     }
-    public double restar(double[] numbers){
+    public double restar(List<double> numbers){
 
-        var resta =0.0;
-        foreach(var number in numbers){
-            resta -= number; 
+        var resta = 0.0;
+        if (numbers.Count == 2){
+            
+                resta = (numbers.ElementAt(0) - numbers.ElementAt(1));
+            
+        }else{
+            
+                resta = (numbers.ElementAt(0) - numbers.ElementAt(1)) - numbers.ElementAt(2);
+            
         }
-
-        return Math.Round(resta);
+        
+        return resta;
     }
-    public double multiplicar(double[] numbers){
+    public double multiplicar(List<double> numbers){
 
-        var multiplica =0.0;
-        foreach(var number in numbers){
-            multiplica *= number; 
+        var multiplica = 1.0;
+        for(var i = 0; i < numbers.Count; i++){
+            var value = numbers.ElementAt(i);
+            multiplica =  (multiplica * value);
         }
-
-        return Math.Round(multiplica,2);
+        return multiplica;
     }
-    public double dividir(double [] numbers){
+    public double dividir(List<double> numbers){
 
         var result = 0.0;
         if(numbers[1] == 0){
             Console.WriteLine("No se puede dividir entre 0");        
         }else{
-            var divide = numbers[0] / numbers[1];
+            var divide = numbers.ElementAt(0) / numbers.ElementAt(1);
 
             result = divide;
         }   
         return result;
     }
-    public double porcentuar (double[] numbers){
-        var resultado = numbers[0] * Convert.ToDouble("0."+numbers[1]);
+    public double porcentuar (List<double> numbers){
+        var resultado = numbers.ElementAt(0) * Convert.ToDouble("0."+numbers.ElementAt(1));
             
         return resultado;  
     }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 public class Menu{
 
     public string Username { get; set;}
@@ -41,7 +42,7 @@ public class Menu{
         return user;
     }
 
-    public void ExecuteOperation(int option, double [] numbers, int quantity){
+    public double ExecuteOperation(int option, List<double> numbers, int quantity){
 
         var result = 0.0;
         switch(option){
@@ -51,29 +52,25 @@ public class Menu{
 
             case 1:
                 result = functions.sumar(numbers);
-                Console.WriteLine("El resultado de su operacion es: " + result);
             break;
 
             case 2:
                 result = functions.restar(numbers);
-                Console.WriteLine("El resultado de su operacion es: " + result);
             break;
 
             case 3:
                 result = functions.multiplicar(numbers);
-                Console.WriteLine("El resultado de su operacion es: " + result);
             break;
 
             case 4:
                 result = functions.dividir(numbers);
-                Console.WriteLine("El resultado de su operacion es: " + result);
             break;
             case 5:
                 result = functions.porcentuar(numbers);
-                 Console.WriteLine("El resultado de su operacion es: " + result);
             break;
         }
         //Console.WriteLine("El resultado de su operacion es: " + result);
+        return result;
     }
 
     public int Quantity(){
