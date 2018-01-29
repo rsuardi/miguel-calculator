@@ -12,7 +12,7 @@ public class Menu{
 
        Console.WriteLine("-------------------------------------");
        Console.WriteLine("");
-        Console.WriteLine("BIENVENIDO --" + user.ToUpper() + "-- A SU CALCULADORA PERSONAL");
+        Console.WriteLine("-- Hoy es --" + DateTime.Now.ToString("dd-MM-yyyy") + " BIENVENIDO --" + user.ToUpper() + "-- A TU CALCULADORA PERSONAL ");
         Console.WriteLine("");
     }
     public void ShowMenu(){
@@ -22,6 +22,7 @@ public class Menu{
         Console.WriteLine("3) Multiplicacion");
         Console.WriteLine("4) Division");
         Console.WriteLine("5) Porcentaje");
+        Console.WriteLine("0) Salir"); 
 
         Console.WriteLine("-------------------------------------");
     }
@@ -40,31 +41,39 @@ public class Menu{
         return user;
     }
 
-    public void ExecuteOperation(int option, int [] numbers, int quantity){
+    public void ExecuteOperation(int option, double [] numbers, int quantity){
 
-        var result = 0;
+        var result = 0.0;
         switch(option){
+            case 0:
+                functions.salir();
+            break;
 
             case 1:
                 result = functions.sumar(numbers);
+                Console.WriteLine("El resultado de su operacion es: " + result);
             break;
 
             case 2:
                 result = functions.restar(numbers);
+                Console.WriteLine("El resultado de su operacion es: " + result);
             break;
 
             case 3:
                 result = functions.multiplicar(numbers);
+                Console.WriteLine("El resultado de su operacion es: " + result);
             break;
 
             case 4:
                 result = functions.dividir(numbers);
+                Console.WriteLine("El resultado de su operacion es: " + result);
             break;
             case 5:
                 result = functions.porcentuar(numbers);
+                 Console.WriteLine("El resultado de su operacion es: " + result);
             break;
         }
-        Console.WriteLine("El resultado de su operacion es: " + result);
+        //Console.WriteLine("El resultado de su operacion es: " + result);
     }
 
     public int Quantity(){
@@ -82,4 +91,6 @@ public class Menu{
         return quantity;
     
     }
+
+    
 }
